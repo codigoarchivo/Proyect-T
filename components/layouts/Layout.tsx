@@ -23,12 +23,7 @@ export const TyerraLayout: FC<Props> = ({ children, title, pageDescription, imag
                     )
                 }
             </Head>
-            <main style={{
-                margin: '80px auto',
-                maxWidth: '1440px',
-                padding: '0 30px',
-            }}
-            >{children}</main>
+            <main>{children}</main>
         </>
     )
 }
