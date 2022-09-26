@@ -19,20 +19,6 @@ export const darkTheme = createTheme({
         },
     },
     components: {
-        MuiAppBar: {
-            defaultProps: {},
-            styleOverrides: {
-                root: {
-                    backgroundColor: 'transparent',
-                }
-            }
-        },
-        MuiCardContent: {
-            styleOverrides: {
-                root: {
-                    paddingBottom: '14px !important'
-                }
-            }
-        }
+    
     }
 })

@@ -2,6 +2,8 @@ import { FC, ReactNode } from "react"
 
 import Head from "next/head"
 
+import { Nabvar } from './';
+
 interface Props {
     children: ReactNode;
     title: string;
@@ -24,6 +26,9 @@ export const TyerraLayout: FC<Props> = ({ children, title, pageDescription, imag
                 }
             </Head>
             <main>{children}</main>
+
+             {/* Nabvar */}
+             <Nabvar />
         </>
     )
 }

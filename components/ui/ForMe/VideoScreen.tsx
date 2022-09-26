@@ -1,15 +1,17 @@
-import { Box } from '@mui/material';
 import { FC } from 'react';
 
-import { IWatch } from '../../interfaces';
+import { Box } from '@mui/material';
 
-import { SvgAllIcon, MarqueeAll, VideoContinue } from './';
+import { IWatch } from '../../../interfaces';
+
+import { SvgAllIcon, MarqueeAll } from './';
 
 interface Props {
     data: IWatch;
 }
 
 export const VideoScreen: FC<Props> = ({ data }) => {
+
     return (
         <>
             <Box display='flex' justifyContent={'space-between'}>
@@ -25,14 +27,10 @@ export const VideoScreen: FC<Props> = ({ data }) => {
             </Box>
 
             {/* all videos */}
-            <Box display='flex' height={'inherit'}>
-                <VideoContinue />
-                {/* TODO: falta agregar esta funcionalidad */}
-
-                {/* <video height={'inherit'} width={'inherit'} autoPlay muted loop >
-                    <source src={data?.videos[0]} type='video/mp4'></source>
-                </video> */}
-            </Box>
+            <video height={'inherit'} width={'inherit'} autoPlay muted loop >
+                <source src={data?.videos[0]} type='video/mp4'></source>
+            </video>
+           
         </>
     )
 }

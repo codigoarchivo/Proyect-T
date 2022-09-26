@@ -2,13 +2,11 @@ import { FC, useState } from 'react';
 
 import Marquee from 'react-fast-marquee';
 
-import { Stack, Typography, Box, Button } from '@mui/material';
+import { Stack, Typography, Box, Button} from '@mui/material';
 
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 
-import { IWatch } from '../../interfaces';
-
-import styles from './MarqueeAll.module.css'
+import { IWatch } from '../../../interfaces';
 
 interface Props {
     data: IWatch;
@@ -18,25 +16,17 @@ export const MarqueeAll: FC<Props> = ({ data }) => {
 
     const [show, setShow] = useState(true);
 
+
     const iconInitial = {
         position: 'absolute',
-        zIndex: 1,
+        zIndex: 20,
         left: '5%',
         textAlign: 'left',
     };
 
-
     return (
 
         <Stack position={'absolute'} height={'100vh'} width={'100%'}>
-
-            <Stack spacing={0} flexDirection={'row'} justifyContent={'center'} sx={{ ...iconInitial, top: '3%' }} width={'100%'}>
-                <Stack flexDirection={'row'} justifyContent={'space-between'} width={'55%'}>
-                    <Typography className={styles['text__space']} fontWeight={600}>Siguiendo</Typography>
-                    <Typography className={styles['text__space']} fontWeight={600}>Para ti</Typography>
-                </Stack>
-            </Stack>
-
             <Stack alignItems={'center'} sx={{ ...iconInitial, bottom: '12%' }} width={'100%'}>
 
                 <Stack spacing={1} style={{ position: 'absolute', left: '0%', bottom: '53%' }}>

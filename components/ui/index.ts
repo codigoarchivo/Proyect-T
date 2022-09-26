@@ -1,6 +1,1 @@
-export * from './VideoScreen'
 export * from './Swiper'
-export * from './SvgAllIcon'
-export * from './MarqueeAll'
-export * from './Nabvar'
-export * from './VideoContinue'

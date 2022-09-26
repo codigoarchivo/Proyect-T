@@ -12,11 +12,11 @@ import Avatar from '@mui/material/Avatar';
 
 import AvatarGroup from '@mui/material/AvatarGroup';
 
-import { SvgLove, SvgMessage, SvgRedirect } from '../../utils';
+import { SvgLove, SvgMessage, SvgRedirect } from '../../../utils';
 
 import SearchIcon from '@mui/icons-material/Search';
 
-import { IWatch } from '../../interfaces';
+import { IWatch } from '../../../interfaces';
 
 
 interface Props {

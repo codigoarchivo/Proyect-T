@@ -1,32 +1,84 @@
-import React from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useContext, SyntheticEvent } from "react";
 
-import { VideoScreen, Nabvar } from './';
+import { Tabs, Tab, Stack } from '@mui/material';
 
-import { initialData } from '../../database';
+import { VideoContinue } from './Following';
+
+import { VideoMe } from "./ForMe";
+
+import { UIContext } from "../../context/ui";
 
 // Import Swiper styles
 import "swiper/css/pagination";
 import "swiper/css";
 
 export const Swipers = () => {
+    const { tabsMenuOpen, toggleTabsMenu } = useContext(UIContext)
+
+    interface TabPanelProps {
+        children?: React.ReactNode;
+        index: number;
+        value: number;
+    }
+
+
+    const TabPanel = (props: TabPanelProps) => {
+        const { children, value, index, ...other } = props;
+
+        return (
+            <div
+                role="tabpanel"
+                hidden={value !== index}
+                id={`simple-tabpanel-${index}`}
+                aria-labelledby={`simple-tab-${index}`}
+                {...other}
+            >
+                {value === index && (
+                    <>
+                        {children}
+                    </>
+                )}
+            </div>
+        );
+    }
+
+    const handleChange = (event: SyntheticEvent, newValue: number) => {
+        toggleTabsMenu(newValue);
+    };
+
+    const a11yProps = (index: number) => {
+        return {
+            id: `simple-tab-${index}`,
+            'aria-controls': `simple-tabpanel-${index}`,
+        };
+    }
+
+    const iconInitial = {
+        position: 'absolute',
+        zIndex: 20,
+    };
+
     return (
         <>
-            <Swiper
-                direction={"vertical"}
-                className="mySwiper"
-            >
+            {/* select Following and for me */}
+            <Stack sx={{ ...iconInitial, top: '3%' }} height={'7vh'} width={'100%'}>
+                <Stack spacing={0} flexDirection={'row'} justifyContent={'center'} >
+                    <Tabs value={tabsMenuOpen} onChange={handleChange} aria-label="basic tabs example">
+                        <Tab label="Siguiendo" {...a11yProps(0)} />
+                        <Tab label="Para ti" {...a11yProps(1)} />
+                    </Tabs>
+                </Stack>
+            </Stack>
 
-                {
-                    initialData.user.map((data, key) => (
-                        <SwiperSlide key={key}>
-                            <VideoScreen data={data} />
-                        </SwiperSlide>
-                    ))
-                }
-            </Swiper>
-            <Nabvar />
+            {/* Following */}
+            <TabPanel value={tabsMenuOpen} index={0}>
+                <VideoContinue />
+            </TabPanel>
+
+            {/* for me */}
+            <TabPanel value={tabsMenuOpen} index={1}>
+                <VideoMe />
+            </TabPanel>
         </>
     )
 }
