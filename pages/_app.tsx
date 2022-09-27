@@ -4,18 +4,22 @@ import { CssBaseline } from '@mui/material'
 
 import { ColorsProvider } from '../context/colors'
 
+import { EntriesProvider } from '../context/entries'
+
 import { UIProvider } from '../context/ui'
 
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <UIProvider>
-      <ColorsProvider>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ColorsProvider>
-    </UIProvider>
+    <EntriesProvider>
+      <UIProvider>
+        <ColorsProvider>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ColorsProvider>
+      </UIProvider>
+    </EntriesProvider>
   )
 }
 
