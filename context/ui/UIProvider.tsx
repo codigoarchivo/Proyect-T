@@ -4,6 +4,7 @@ import { UIContext, uiReducer } from ".";
 
 export interface UIState {
     tabsMenuOpen: number,
+    transMenuOpen: boolean,
 }
 
 interface UIData {
@@ -12,6 +13,7 @@ interface UIData {
 
 const UI_INITIAL_STATE: UIState = {
     tabsMenuOpen: 0,
+    transMenuOpen: false,
 }
 
 
@@ -22,11 +24,14 @@ export const UIProvider: FC<UIData> = ({ children }) => {
 
 
     const toggleTabsMenu = (newValue: any) => {
-
         dispatch({
             type: '[UI] - Toggle - Tabs',
             payload: newValue
         })
+    }
+
+    const toggleTransMenu = () => {
+        dispatch({ type: '[UI] - Toggle - Trans' })
     }
 
     return (
@@ -35,6 +40,7 @@ export const UIProvider: FC<UIData> = ({ children }) => {
 
             // methods
             toggleTabsMenu,
+            toggleTransMenu,
         }}>
             {children}
         </UIContext.Provider>

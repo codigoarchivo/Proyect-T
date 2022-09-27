@@ -3,6 +3,7 @@ import { UIState } from '.';
 
 type UIActionType =
     | { type: '[UI] - Toggle - Tabs', payload: 0 }
+    | { type: '[UI] - Toggle - Trans' }
 
 export const uiReducer = (state: UIState, action: UIActionType): UIState => {
 
@@ -11,6 +12,11 @@ export const uiReducer = (state: UIState, action: UIActionType): UIState => {
             return {
                 ...state,
                 tabsMenuOpen: action.payload
+            }
+        case '[UI] - Toggle - Trans':
+            return {
+                ...state,
+                transMenuOpen: !state.transMenuOpen
             }
         default:
             return state
