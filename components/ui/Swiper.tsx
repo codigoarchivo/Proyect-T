@@ -2,11 +2,13 @@ import { useContext, SyntheticEvent } from "react";
 
 import { Tabs, Tab, Stack } from '@mui/material';
 
-import { VideoContinue } from './Following';
+import { VideoContinue } from './following';
 
-import { VideoMe } from "./ForMe";
+import { VideoMe } from "./forMe";
 
 import { UIContext } from "../../context/ui";
+
+import { Transitions } from "./watch";
 
 // Import Swiper styles
 import "swiper/css/pagination";
@@ -79,6 +81,11 @@ export const Swipers = () => {
             <TabPanel value={tabsMenuOpen} index={1}>
                 <VideoMe />
             </TabPanel>
+
+            {/* Transitions */}
+            <Stack sx={{ ...iconInitial, top: 0 }} height={'7vh'} width={'100%'}>
+                <Transitions />
+            </Stack>
         </>
     )
 }
