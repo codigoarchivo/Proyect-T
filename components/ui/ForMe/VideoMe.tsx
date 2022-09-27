@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { VideoScreen } from './';
+import { VideoScreen } from '.';
 
 import { initialData } from '../../../database'
 

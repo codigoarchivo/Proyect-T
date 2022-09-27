@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 
 import { IWatch } from '../../../interfaces';
 
-import { SvgAllIcon, MarqueeAll } from './';
+import { SvgAndTextLeft, SvgAndTextRight } from './';
 
 interface Props {
     data: IWatch;
@@ -15,14 +15,14 @@ export const VideoScreen: FC<Props> = ({ data }) => {
     return (
         <>
             <Box display='flex' justifyContent={'space-between'}>
-                {/* MarqueeAll and text */}
+                {/* SvgAndTextLeft and text */}
                 <Box position={'relative'} mr={0} width={'80%'}>
-                    <MarqueeAll data={data} />
+                    <SvgAndTextLeft data={data} />
                 </Box>
 
-                {/* all icons */}
+                {/* SvgAndTextRight and text */}
                 <Box position={'relative'} mr={0} width={'20%'}>
-                    <SvgAllIcon data={data} />
+                    <SvgAndTextRight data={data} />
                 </Box>
             </Box>
 
@@ -30,7 +30,7 @@ export const VideoScreen: FC<Props> = ({ data }) => {
             <video height={'inherit'} width={'inherit'} autoPlay muted loop >
                 <source src={data?.videos[0]} type='video/mp4'></source>
             </video>
-           
+
         </>
     )
 }

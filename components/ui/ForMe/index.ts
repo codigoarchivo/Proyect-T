@@ -1,4 +1,4 @@
-export * from './MarqueeAll'
-export * from './SvgAllIcon'
+export * from './SvgAndTextLeft'
+export * from './SvgAndTextRight'
 export * from './VideoMe'
 export * from './VideoScreen'
