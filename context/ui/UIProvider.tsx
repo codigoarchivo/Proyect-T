@@ -12,7 +12,7 @@ interface UIData {
 }
 
 const UI_INITIAL_STATE: UIState = {
-    tabsMenuOpen: 0,
+    tabsMenuOpen: 1,
     transMenuOpen: false,
 }
 

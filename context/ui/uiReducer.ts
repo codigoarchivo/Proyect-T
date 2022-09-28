@@ -2,7 +2,7 @@ import { UIState } from '.';
 // UIState proviene del UIProvider interface
 
 type UIActionType =
-    | { type: '[UI] - Toggle - Tabs', payload: 0 }
+    | { type: '[UI] - Toggle - Tabs', payload: 1 }
     | { type: '[UI] - Toggle - Trans' }
 
 export const uiReducer = (state: UIState, action: UIActionType): UIState => {

@@ -16,11 +16,11 @@ import { SvgLove, SvgMessage, SvgRedirect } from '../../../utils';
 
 import SearchIcon from '@mui/icons-material/Search';
 
-import { IWatch } from '../../../interfaces';
+import { IforMe } from '../../../interfaces';
 
 
 interface Props {
-    data: IWatch;
+    data: IforMe;
 }
 
 export const SvgAndTextRight: FC<Props> = ({ data }) => {

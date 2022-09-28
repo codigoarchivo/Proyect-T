@@ -6,9 +6,10 @@ import Slide from '@mui/material/Slide';
 
 import { UIContext } from '../../../context/ui';
 
-import { initialData } from '../../../database';
+import { MountScreen } from './';
 
-import { MountScreen } from '.';
+import { seeDatabase } from '../../../database';
+
 
 export const Transitions = () => {
     const { transMenuOpen } = useContext(UIContext);
@@ -18,7 +19,7 @@ export const Transitions = () => {
             <Slide direction="up" in={transMenuOpen} mountOnEnter unmountOnExit>
                 <Box sx={{ width: 'inherit', height: 'inherit', backgroundColor: '#000' }}>
                     {
-                        initialData.user.map((data, key) => (
+                       seeDatabase.initialData.dataFor.map((data, key) => (
                             <MountScreen data={data} key={key} />
                         ))
                     }

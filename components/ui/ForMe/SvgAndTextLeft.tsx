@@ -6,10 +6,10 @@ import { Stack, Typography, Box, Button} from '@mui/material';
 
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 
-import { IWatch } from '../../../interfaces';
+import { IforMe } from '../../../interfaces';
 
 interface Props {
-    data: IWatch;
+    data: IforMe;
 }
 
 export const SvgAndTextLeft: FC<Props> = ({ data }) => {
@@ -52,7 +52,7 @@ export const SvgAndTextLeft: FC<Props> = ({ data }) => {
                     <MusicNoteIcon sx={{ left: '0%', width: 16, height: 16, display: 'flex' }} />
                 </Box>
                 <Marquee gradient={false} style={{ left: '2%', width: '60%' }}>
-                    <Typography> hola kokópkrgo´re´gegrgrokgóekg´krgkrkgrkgrepk</Typography>
+                    <Typography> {data.title}</Typography>
                 </Marquee>
             </Stack>
         </Stack>

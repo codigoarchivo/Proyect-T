@@ -1,19 +1,19 @@
 import { FC, useContext, useRef } from 'react';
 
-import { Stack, Typography, Box, Button, AvatarGroup, Avatar } from '@mui/material';
+import { Stack, Button, AvatarGroup, Avatar } from '@mui/material';
 
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 
 import CloseIcon from '@mui/icons-material/Close';
 
-import { IWatch } from '../../../interfaces';
+import { IforMe } from '../../../interfaces';
 
 import { UIContext } from '../../../context/ui';
 
 import { EntriesContext } from '../../../context/entries';
 
 interface Props {
-    data: IWatch;
+    data: IforMe;
 }
 
 export const SvgAndTextLeft: FC<Props> = ({ data }) => {
@@ -50,7 +50,7 @@ export const SvgAndTextLeft: FC<Props> = ({ data }) => {
 
     return (
 
-        <Stack position={'absolute'} height={'100vh'} width={'100%'} style={{ backgroundColor: '#000' }}>
+        <Stack position={'absolute'} height={'100vh'} width={'100%'}>
 
             <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'} sx={{ ...iconInitial, ...space, top: '6%' }}>
                 <CloseIcon onClick={toggleTransMenu} fontSize='large' />
@@ -67,7 +67,7 @@ export const SvgAndTextLeft: FC<Props> = ({ data }) => {
 
                 <div>
                     <AvatarGroup max={4} onClick={handlePictureClick}>
-                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                        <Avatar alt="Remy Sharp" src={'/static/images/avatar/1.jpg'} />
                     </AvatarGroup>
                     <input
                         ref={upload}

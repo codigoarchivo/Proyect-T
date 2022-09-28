@@ -6,10 +6,10 @@ import AvatarGroup from '@mui/material/AvatarGroup';
 
 import Avatar from '@mui/material/Avatar';
 
-import { IWatch } from '../../../interfaces';
+import { IFollowing } from '../../../interfaces';
 
 interface Props {
-    data: IWatch;
+    data: IFollowing;
 }
 
 export const VideoScreenTwo: FC<Props> = ({ data }) => {
@@ -31,7 +31,7 @@ export const VideoScreenTwo: FC<Props> = ({ data }) => {
 
                         <Stack alignItems={'center'} sx={{ ...iconInitial, bottom: '59%' }}>
                             <AvatarGroup max={4} >
-                                <Avatar sx={{ width: 60, height: 60 }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                                <Avatar sx={{ width: 60, height: 60 }} alt={data?.title} src={'/static/images/avatar/1.jpg'} />
                             </AvatarGroup>
                         </Stack>
 

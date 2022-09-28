@@ -1,2 +1,2 @@
-export * from './VideoContinue'
 export * from './VideoScreenTwo'
+export * from './SwiperSlidesTwo'

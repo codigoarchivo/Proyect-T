@@ -2,12 +2,12 @@ import { FC } from 'react';
 
 import { Box } from '@mui/material';
 
-import { IWatch } from '../../../interfaces';
+import { IforMe } from '../../../interfaces';
 
 import { SvgAndTextLeft, SvgAndTextRight } from './';
 
 interface Props {
-    data: IWatch;
+    data: IforMe;
 }
 
 export const VideoScreen: FC<Props> = ({ data }) => {

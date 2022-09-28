@@ -1,22 +1,70 @@
-interface SeedWatch {
+interface IforMe {
     title: string;
     description: string;
     tags: string[];
     videos: string[];
     slug: string;
-    image: string,
     inLike: number;
     inSend: number;
     inSave: number;
     inShare: number;
 }
 
+interface IFollowing {
+    title: string;
+    tags: string[];
+    videos: string[];
+}
+
 interface Props {
-    user: SeedWatch[],
+    dataFor: IforMe[],
+    dataFoll: IFollowing[],
 }
 
 export const initialData: Props = {
-    user: [
+    dataFoll: [
+        {
+            title: "Men’s Chill Crew Neck Sweatshirt",
+            tags: ['sweatshirt'],
+            videos: [
+                '/videos/Mujer.mp4',
+                '/videos/Rana.mp4',
+            ],
+        },
+        {
+            tags: ['jacket'],
+            title: "Men's Quilted Shirt Jacket",
+            videos: [
+                '/videos/Rana.mp4',
+                '/videos/Mujer.mp4',
+            ],
+        },
+        {
+            tags: ['jacket'],
+            title: "Men's Quilted Shirt Jacket",
+            videos: [
+                '/videos/Rana.mp4',
+                '/videos/Mujer.mp4',
+            ],
+        },
+        {
+            tags: ['jacket'],
+            title: "Men's Quilted Shirt Jacket",
+            videos: [
+                '/videos/Rana.mp4',
+                '/videos/Mujer.mp4',
+            ],
+        },
+        {
+            tags: ['jacket'],
+            title: "Men's Quilted Shirt Jacket",
+            videos: [
+                '/videos/Rana.mp4',
+                '/videos/Mujer.mp4',
+            ],
+        },
+    ],
+    dataFor: [
         {
             title: "Men’s Chill Crew Neck Sweatshirt",
             description: "Introducing the Tesla Chill Collection. The Men’s Chill Crew Neck Sweatshirt has a premium, heavyweight exterior and soft fleece interior for comfort in any season. The sweatshirt features a subtle thermoplastic polyurethane T logo on the chest and a Tesla wordmark below the back collar. Made from 60% cotton and 40% recycled polyester.",
@@ -26,7 +74,6 @@ export const initialData: Props = {
             ],
             tags: ['sweatshirt'],
             slug: "mens_chill_crew_neck_sweatshirt",
-            image: "1740176-00-A_0_2000.jpg",
             inLike: 7,
             inSend: 75,
             inSave: 75,
@@ -41,7 +88,6 @@ export const initialData: Props = {
             ],
             tags: ['jacket'],
             slug: "men_quilted_shirt_jacket",
-            image: "1740507-00-A_0_2000.jpg",
             inLike: 5,
             inSend: 200,
             inSave: 200,
@@ -57,7 +103,6 @@ export const initialData: Props = {
             ],
             tags: ['shirt'],
             slug: "men_raven_lightweight_zip_up_bomber_jacket",
-            image: "1740250-00-A_0_2000.jpg",
             inLike: 10,
             inSend: 130,
             inSave: 130,
@@ -73,7 +118,6 @@ export const initialData: Props = {
             ],
             tags: ['shirt'],
             slug: "men_turbine_long_sleeve_tee",
-            image: "1740280-00-A_0_2000.jpg",
             inLike: 50,
             inSend: 45,
             inSave: 45,
@@ -88,7 +132,6 @@ export const initialData: Props = {
             ],
             tags: ['shirt'],
             slug: "men_turbine_short_sleeve_tee",
-            image: "1741416-00-A_0_2000.jpg",
             inLike: 50,
             inSend: 40,
             inSave: 40,
@@ -97,3 +140,7 @@ export const initialData: Props = {
 
     ]
 }
+
+
+
+

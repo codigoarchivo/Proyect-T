@@ -1,23 +1,13 @@
 import { FC } from 'react';
 
-import { Box, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
-import Brightness1Icon from '@mui/icons-material/Brightness1';
+import { SvgLove, SvgMessage } from '../../../utils';
 
-import TurnedInIcon from '@mui/icons-material/TurnedIn';
-
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-
-import Avatar from '@mui/material/Avatar';
-
-import AvatarGroup from '@mui/material/AvatarGroup';
-
-import { SvgLove, SvgMessage, SvgRedirect } from '../../../utils';
-
-import { IWatch } from '../../../interfaces';
+import { IforMe } from '../../../interfaces';
 
 interface Props {
-    data: IWatch;
+    data: IforMe;
 }
 
 export const SvgAndTextRight: FC<Props> = ({ data }) => {
@@ -38,7 +28,7 @@ export const SvgAndTextRight: FC<Props> = ({ data }) => {
 
     return (
         <>
-            <Stack position={'absolute'} height={'100vh'} width={'100%'} style={{ backgroundColor: '#000' }}>
+            <Stack position={'absolute'} height={'100vh'} width={'100%'} >
                 <Stack alignItems={'center'} sx={{ ...iconInitial, ...space, top: '10%' }}>
                     <SvgLove fontSize='large' />
                     <Typography>
