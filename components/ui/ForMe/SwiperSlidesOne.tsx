@@ -8,17 +8,17 @@ import { UIContext } from '../../../context/ui';
 
 import { IforMe } from '../../../interfaces';
 
+import { EntriesContext } from '../../../context/entries';
 
 // Import Swiper styles
 import "swiper/css/pagination";
 import "swiper/css";
 
-interface Props {
-    forMe: IforMe[];
-}
 
-export const SwiperSlidesOne: FC<Props> = ({ forMe }) => {
+export const SwiperSlidesOne = () => {
     const { tabsMenuOpen } = useContext(UIContext);
+
+    const { list } = useContext(EntriesContext)
 
     interface TabPanelProps {
         children?: React.ReactNode;
@@ -60,7 +60,7 @@ export const SwiperSlidesOne: FC<Props> = ({ forMe }) => {
             >
 
                 {
-                    forMe.map((data: IforMe, key) => (
+                    list.map((data: IforMe, key) => (
                         <SwiperSlide key={key}>
                             <VideoScreen data={data} />
                         </SwiperSlide>

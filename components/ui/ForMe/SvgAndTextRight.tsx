@@ -1,6 +1,8 @@
-import { FC } from 'react';
+import { FC, useContext, useRef } from 'react';
 
-import { Box, Stack, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+
+import { Box, Stack, Typography, Button } from '@mui/material';
 
 import Brightness1Icon from '@mui/icons-material/Brightness1';
 
@@ -18,12 +20,18 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import { IforMe } from '../../../interfaces';
 
+import { EntriesContext } from '../../../context/entries';
+
 
 interface Props {
-    data: IforMe;
+    d: IforMe;
 }
 
-export const SvgAndTextRight: FC<Props> = ({ data }) => {
+export const SvgAndTextRight: FC<Props> = ({ d }) => {
+    //  entries
+    const { upload, listAdd } = useContext(EntriesContext);
+
+    const initUpload = useRef<HTMLInputElement>(null)
 
     const iconInitial = {
         position: 'absolute',
@@ -38,7 +46,24 @@ export const SvgAndTextRight: FC<Props> = ({ data }) => {
         height: 50,
         fontWeight: 'bold'
     };
+    const handlePictureClick = () => {
+        if (typeof initUpload.current !== null) {
+            initUpload.current?.click();
+        }
+    };
 
+    const handleFileChange = ({ target }: any) => {
+        const file = target.files[0];
+        if (file) upload(file);
+    };
+
+
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+        if (d) {
+            listAdd(d)
+        }
+    }
     return (
         <>
             <Stack position={'absolute'} height={'100vh'} width={'100%'} >
@@ -46,35 +71,55 @@ export const SvgAndTextRight: FC<Props> = ({ data }) => {
                     <SearchIcon fontSize='large' />
                 </Stack>
 
-                <Stack alignItems={'center'} sx={{ ...iconInitial, bottom: '59%' }}>
-                    <AvatarGroup max={4} >
+                <Stack spacing={1} alignItems={'center'} sx={{ ...iconInitial, bottom: '59%' }}>
+                    <Box onClick={handlePictureClick}>
+                        {/* <Brightness1Icon sx={{ ...iconInitial, color: 'red', bottom: '-38%', fontSize: '1rem' }} /> */}
+                        <AddCircleIcon sx={{ ...iconInitial, zIndex: 2, bottom: '-60%' }} fontSize='medium' />
+                    </Box>
+
+                    <form onSubmit={handleSubmit}>
+                        <Button type={'submit'} size="small" variant="outlined">
+                            add video
+                        </Button>
+                    </form>
+                    <div>
+                        <input
+                            ref={initUpload}
+                            name="file"
+                            type="file"
+                            style={{ display: "none" }}
+                            onChange={handleFileChange}
+                        />
+                    </div>
+                    {/* <AvatarGroup max={4} onClick={handlePictureClick}>
                         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                     </AvatarGroup>
                     <Box>
                         <Brightness1Icon sx={{ ...iconInitial, color: 'red', bottom: '-38%', fontSize: '1rem' }} />
                         <AddCircleIcon sx={{ ...iconInitial, zIndex: 2, bottom: '-60%' }} fontSize='medium' />
-                    </Box>
+                    </Box> */}
                 </Stack>
+
 
 
                 <Stack alignItems={'center'} sx={{ ...iconInitial, ...space, bottom: '46%' }}>
                     <SvgLove fontSize='large' />
                     <Typography>
-                        {data?.inLike + 'k'}
+                        {d?.inLike + 'k'}
                     </Typography>
                 </Stack>
 
                 <Stack alignItems={'center'} sx={{ ...iconInitial, ...space, bottom: '36%' }}>
                     <SvgMessage fontSize='large' />
                     <Typography>
-                        {data?.inSend + 'k'}
+                        {d?.inSend + 'k'}
                     </Typography>
                 </Stack>
 
                 <Stack alignItems={'center'} sx={{ ...iconInitial, ...space, bottom: '26%' }}>
                     <TurnedInIcon fontSize='large' />
                     <Typography>
-                        {data?.inSave + 'k'}
+                        {d?.inSave + 'k'}
                     </Typography>
                 </Stack>
 
@@ -82,7 +127,7 @@ export const SvgAndTextRight: FC<Props> = ({ data }) => {
                 <Stack spacing={0} alignItems={'center'} textAlign={'center'} sx={{ ...iconInitial, ...space, bottom: '16%' }}>
                     <SvgRedirect fontSize='large' />
                     <Typography>
-                        {data?.inShare + 'k'}
+                        {d?.inShare + 'k'}
                     </Typography>
                 </Stack>
 

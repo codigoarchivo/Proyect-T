@@ -1,22 +1,21 @@
-import { FC, useState } from 'react';
+import { FC, useContext, useState, useEffect, useMemo } from 'react';
 
 import Marquee from 'react-fast-marquee';
 
-import { Stack, Typography, Box, Button} from '@mui/material';
+import { Stack, Typography, Box, Button } from '@mui/material';
 
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 
 import { IforMe } from '../../../interfaces';
+
 
 interface Props {
     data: IforMe;
 }
 
 export const SvgAndTextLeft: FC<Props> = ({ data }) => {
-
     const [show, setShow] = useState(true);
-
-
+    
     const iconInitial = {
         position: 'absolute',
         zIndex: 20,
@@ -24,6 +23,7 @@ export const SvgAndTextLeft: FC<Props> = ({ data }) => {
         textAlign: 'left',
     };
 
+  
     return (
 
         <Stack position={'absolute'} height={'100vh'} width={'100%'}>
@@ -33,7 +33,7 @@ export const SvgAndTextLeft: FC<Props> = ({ data }) => {
                     <Typography fontWeight={600}>{data.title}</Typography>
 
                     <Typography sx={{ wordBreak: 'break-word' }} >
-                        {data?.description.slice(0, show ? 60 : data?.description.length)}
+                        {data?.description && data?.description.slice(0, show ? 60 : data?.description.length)}
                         <Button
                             variant="text"
                             onClick={() => setShow(!show)}

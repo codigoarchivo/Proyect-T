@@ -4,7 +4,7 @@ export const fileUpload = async (file: any) => {
     const cloudUrl = "https://api.cloudinary.com/v1_1/jackson-quintero/upload";
     const forData = new FormData();
 
-    forData.append("upload_preset", "react-journal");
+    forData.append("upload_preset", "proyect-tiktok");
     forData.append("file", file);
 
     try {

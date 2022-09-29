@@ -1,22 +1,17 @@
-import { useContext, SyntheticEvent, FC } from "react";
+import { useContext, SyntheticEvent } from "react";
 
 import { Tabs, Tab, Stack } from '@mui/material';
 
-import { SwiperSlidesTwo } from './following';
+import { SwiperSlidesTwo } from './following/SwiperSlidesTwo';
 
-import { SwiperSlidesOne } from "./forMe";
+import { SwiperSlidesOne } from "./forMe/SwiperSlidesOne";
 
 import { UIContext } from "../../context/ui";
 
-import { Transitions } from "./watch";
+import { Transitions } from "./watch/Transitions";
 
-import { IforMe } from "../../interfaces";
 
-interface Props {
-    forMe: IforMe[];
-}
-
-export const Swipers: FC<Props> = ({ forMe }) => {
+export const Swipers = () => {
     const { tabsMenuOpen, toggleTabsMenu } = useContext(UIContext)
 
     const handleChange = (event: SyntheticEvent, newValue: number) => {
@@ -52,7 +47,7 @@ export const Swipers: FC<Props> = ({ forMe }) => {
             <SwiperSlidesTwo />
 
             {/* for me */}
-            <SwiperSlidesOne forMe={forMe} />
+            <SwiperSlidesOne />
 
             {/* Transitions */}
             <Stack sx={{ ...iconInitial, top: 0 }} height={'7vh'} width={'100%'}>

@@ -7,7 +7,7 @@ import { FormMe } from '../models';
 export const getForMe = async (): Promise<IforMe[]> => {
 
   await connect();
-  const forMe = await FormMe.find().lean();
+  const forMe = await FormMe.find().lean().sort({ createdAt: 'ascending' });
   await disconnect();
 
 

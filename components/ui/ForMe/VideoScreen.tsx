@@ -22,14 +22,16 @@ export const VideoScreen: FC<Props> = ({ data }) => {
 
                 {/* SvgAndTextRight and text */}
                 <Box position={'relative'} mr={0} width={'20%'}>
-                    <SvgAndTextRight data={data} />
+                    <SvgAndTextRight d={data} />
                 </Box>
             </Box>
 
             {/* all videos */}
-            <video height={'inherit'} width={'inherit'} autoPlay muted loop >
+
+            {data?.videos && <video height={'inherit'} width={'inherit'} autoPlay muted loop >
                 <source src={data?.videos[0]} type='video/mp4'></source>
             </video>
+            }
 
         </>
     )

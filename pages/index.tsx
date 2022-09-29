@@ -1,6 +1,8 @@
+import { useContext, useEffect } from 'react';
+
 import type { GetStaticProps, NextPage } from 'next'
 
-import { TyerraLayout } from '../components/layouts'
+import { TyerraLayout } from '../components/layouts';
 
 import { Swipers } from '../components/ui'
 
@@ -8,13 +10,24 @@ import { getForMe } from '../database/forMe'
 
 import { IforMe } from '../interfaces';
 
+import { EntriesContext } from '../context/entries';
+
 interface Props {
   forMe: IforMe[];
 }
 const HomePage: NextPage<Props> = ({ forMe }) => {
+  const { listData } = useContext(EntriesContext)
+
+  useEffect(() => {
+    if (forMe) {
+      listData(forMe)
+    }
+  }, [])
+
+
   return (
     <TyerraLayout title={'Home'} pageDescription={'Pagina de inicio'}>
-      <Swipers forMe={forMe} />
+      <Swipers />
     </TyerraLayout>
   )
 }
@@ -27,15 +40,6 @@ const HomePage: NextPage<Props> = ({ forMe }) => {
 export const getStaticProps: GetStaticProps = async () => {
 
   const forMe = await getForMe();
-
-  if (!forMe) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false
-      }
-    }
-  }
 
   return {
     props: {
